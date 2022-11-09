@@ -35,7 +35,4 @@ sb.boxplot(x=ncloc, ax=axes[1], showfliers=False)
 #row 3 - boxplot of DCP
 sb.boxplot(x=dcp, ax=axes[2], showfliers=False)
 
-#individual plots
-sb.boxplot(x=nocom, showfliers=False)
-
 plt.show()
