@@ -1,2 +1,2 @@
-lowerWhisker,q1,q2,q3,upperWhisker
-25.24,49.27,59.21,82.31,93.44
+lowerWhisker,q1,q2,q3,upperWhisker,outliers
+25.24,49.27,59.21,82.31,93.44,0

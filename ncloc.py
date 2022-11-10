@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import csv
+import os
 
 #read csv file
 df = pd.read_csv('jfreechart-stats.csv')
@@ -29,10 +30,16 @@ iqr = q3 - q1
 lowerWhisker = np.max([ncloc.min(), q1 - 1.5 * iqr])
 upperWhisker = np.min([ncloc.max(), q3 + 1.5 * iqr])
 
+#find the amount of outliers
+outliers = 0
+for i in ncloc:
+    if i < lowerWhisker or i > upperWhisker:
+        outliers += 1
+
 with open('csv_results\\NCLOC_MustacheGraph.csv', 'w') as f:
     writer = csv.writer(f)
-    writer.writerow(['lowerWhisker', 'q1', 'q2', 'q3', 'upperWhisker'])
-    writer.writerow([lowerWhisker, q1, q2, q3, upperWhisker])
+    writer.writerow(['lowerWhisker', 'q1', 'q2', 'q3', 'upperWhisker', 'outliers'])
+    writer.writerow([lowerWhisker, q1, q2, q3, upperWhisker, outliers])
 
-plot = sb.boxplot(x=ncloc, showfliers=False)
+plot = sb.boxplot(x=ncloc, showfliers=True)
 plt.show()

@@ -29,11 +29,17 @@ iqr = q3 - q1
 lowerWhisker = np.max([nocom.min(), q1 - 1.5 * iqr])
 upperWhisker = np.min([nocom.max(), q3 + 1.5 * iqr])
 
+#find the amount of outliers
+outliers = 0
+for i in nocom:
+    if i < lowerWhisker or i > upperWhisker:
+        outliers += 1
+
 with open('csv_results\\NOCom_MustacheGraph.csv', 'w') as f:
     writer = csv.writer(f)
-    writer.writerow(['lowerWhisker', 'q1', 'q2', 'q3', 'upperWhisker'])
-    writer.writerow([lowerWhisker, q1, q2, q3, upperWhisker])
+    writer.writerow(['lowerWhisker', 'q1', 'q2', 'q3', 'upperWhisker', 'outliers'])
+    writer.writerow([lowerWhisker, q1, q2, q3, upperWhisker, outliers])
 
 
-sb.boxplot(x=nocom, showfliers=False)
+sb.boxplot(x=nocom, showfliers=True)
 plt.show()
