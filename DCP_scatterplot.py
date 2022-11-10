@@ -17,6 +17,10 @@ dcp = df[' DCP']
 nocom = df[' NOCom']
 
 sb.scatterplot(x=nocom, y=dcp)
-plt.show()
+plt.show() #close the window to continue
+
+sb.regplot(x=nocom, y=dcp)
+plt.show() #close the window to continue
+
 
 print(mstats.pearsonr(nocom, dcp))

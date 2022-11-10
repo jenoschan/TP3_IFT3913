@@ -4,6 +4,7 @@ Building the Scatter plot for NoCom and NCLOC
 Pearson's correlation coefficient - using scipy : https://scipy.org/install/
 => result in Terminal:
 PearsonRResult(statistic=0.7145716586953953, pvalue=7.726928022388957e-100)
+
 """
 
 import seaborn as sb
@@ -17,6 +18,10 @@ ncloc = df[' NCLOC']
 nocom = df[' NOCom']
 
 sb.scatterplot(x=nocom, y=ncloc)
-plt.show()
+plt.show() #close the window to continue
+
+
+sb.regplot(x=nocom, y=ncloc)
+plt.show() #close the window to continue
 
 print(mstats.pearsonr(nocom, ncloc))
