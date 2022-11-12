@@ -10,7 +10,7 @@ PearsonRResult(statistic=0.7145716586953953, pvalue=7.726928022388957e-100)
 import seaborn as sb
 import pandas as pd
 import matplotlib.pyplot as plt
-import scipy.stats.mstats as mstats
+import scipy.stats as ss
 
 #read csv file
 df = pd.read_csv('jfreechart-stats.csv')
@@ -21,7 +21,12 @@ sb.scatterplot(x=nocom, y=ncloc)
 plt.show() #close the window to continue
 
 
-sb.regplot(x=nocom, y=ncloc)
+sb.regplot(x=nocom, y=ncloc, order=2)
 plt.show() #close the window to continue
 
-print(mstats.pearsonr(nocom, ncloc))
+#find linear regression
+slope, intercept, r_value, p_value, std_err = ss.linregress(nocom, ncloc)
+print("slope: %f    intercept: %f" % (slope, intercept))
+print("r-squared: %f" % r_value**2)
+
+print(ss.mstats.pearsonr(nocom, ncloc))
