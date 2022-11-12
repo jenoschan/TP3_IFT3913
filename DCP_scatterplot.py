@@ -2,8 +2,12 @@
 Using data from jfreechart-stats.csv
 Building the Scatter plot for NoCom and DCP
 Pearson's correlation coefficient - using scipy : https://scipy.org/install/
+
 => result in Terminal:
+slope: -1.830022    intercept: 75.809529
+r-squared: 0.237903
 PearsonRResult(statistic=-0.4877529974573942, pvalue=4.41524835880053e-39)
+
 """
 
 import seaborn as sb

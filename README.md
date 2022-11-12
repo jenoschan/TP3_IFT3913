@@ -11,3 +11,12 @@ Repo TP2: https://github.com/jenoschan/TP2_IFT3913
 
 Repo TP3: https://github.com/jenoschan/TP3_IFT3913 
 
+
+Veuillez installer les outils suivants: 
+Seaborn https://seaborn.pydata.org/index.html  
+Pandas https://pandas.pydata.org/
+Matplotlib https://matplotlib.org/
+Scipy https://scipy.org/ 
+
+
+
